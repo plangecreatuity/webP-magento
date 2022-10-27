@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <input type="file" name="" id="userImage">
-    <img src="" alt="" id="uimage">
-    <img src="" alt="" id="wimage">
-    <script src="./index.js"></script>
-</body>
+    <style>
+      img {
+        width: 400px;
+        height: auto;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <picture>
+        <source srcset="./img/pobrane.webp" type="image/webp">
+        <source srcset="./img/prod_1263455_1_582176360_large" type="image/jpeg"> 
+        <img src="./img/prod_1263455_1_582176360_large.jpg" alt="Alt Text!">
+      </picture>
+    <!-- <script src="./index.js"></script> -->
+  </body>
 </html>

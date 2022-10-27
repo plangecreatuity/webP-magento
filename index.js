@@ -1,31 +1,31 @@
-let inputClick = document.querySelector('#userImage');
+let inputClick = document.querySelector("#userImage");
 
-let uimage = document.querySelector('#uimage');
-let wimage = document.querySelector('#wimage');
+let uimage = document.querySelector("#uimage");
+let wimage = document.querySelector("#wimage");
 
-function convertImage (e){
-    console.log('test')
-    if (e.target.files.length > 0) {
-        let src = URL.createObjectURL(e.target.files[0])
-        uimage.src = src;
-        console.log(src)
+let allImages = document.querySelectorAll("source");
+console.log(allImages[0].attributes[0].textContent);
 
-        let canvas = document.createElement('canvas');
-        let ctx = canvas.getContext('2d');
+function convertImage(e) {
+  let src = allImages[0].attributes[0].textContent;
 
-        let userImage = new Image();
-        userImage.src = src;
+  let canvas = document.createElement("canvas");
+  let ctx = canvas.getContext("2d");
 
-        userImage.onload = function() {
-            canvas.width = userImage.width;
-            canvas.height = userImage.height;
-            ctx.drawImage(userImage,0,0);
-           
-            let webImage = canvas.toDataURL("image/webp", 1)
+  let userImage = new Image();
+  userImage.src = src;
 
-            wimage.src = webImage;
-        }
-    }
+  userImage.onload = function () {
+    canvas.width = userImage.width;
+    canvas.height = userImage.height;
+    ctx.drawImage(userImage, 0, 0);
+
+    let webImage = canvas.toDataURL("image/webp", 1);
+    allImages[0].attributes[0].textContent = webImage;
+  };
 }
 
-inputClick.addEventListener('change', convertImage)
+for (let i = 0; i < allImages.length; i++) {
+  console.log(i);
+  convertImage(i);
+}
